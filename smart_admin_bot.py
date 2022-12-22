@@ -4,7 +4,7 @@ import datetime
 from aiogram import Bot, Dispatcher, executor, types
 from Sources import gazeta_image, gazeta_news_text,gazeta_news_header,ria_news_text,ria_news_header,ria_news_image
 
-API_TOKEN = '5807059997:AAF2uXUV4wCqkyyjth0FP9KN1qtPkcMhQR4'
+API_TOKEN = 'BOT TOKEN HERE'
 logging.basicConfig(level=logging.INFO)
 bot = Bot(token=API_TOKEN, parse_mode="HTML")
 dp = Dispatcher(bot)
@@ -22,11 +22,11 @@ async def start(message: types.Message):
     full_name = message.from_user.full_name
     user_id = message.from_user.id
     username = message.from_user.username
-    if user_id == 912930887:
+    if user_id == "ADMIN_ID":
         truefalse = True
-        await bot.send_message(912930887,  "Слушаюсь, сер")
+        await bot.send_message("ADMIN_ID",  "Слушаюсь, сер")
     else:
-        bot.send_message(912930887, "У вас новый пользователь, сер! Вот его данные: \n" + "ФИО: " + str(full_name) + '\nID: ' + str(user_id) + '\nUsername: ' + str(username))
+        bot.send_message("ADMIN_ID", "У вас новый пользователь, сер! Вот его данные: \n" + "ФИО: " + str(full_name) + '\nID: ' + str(user_id) + '\nUsername: ' + str(username))
 
 @dp.message_handler(commands=['bot_send_news_to_channel_from_Gazeta_ru'])
 async def src1(msg: types.Message):
@@ -76,11 +76,11 @@ async def start(message: types.Message):
     full_name = message.from_user.full_name
     user_id = message.from_user.id
     username = message.from_user.username
-    if user_id == 912930887:
+    if user_id == "ADMIN_ID":
         truefalse = False
-        await bot.send_message(912930887,  "Слушаюсь, сер")
+        await bot.send_message("ADMIN_ID",  "Слушаюсь, сер")
     else:
-        bot.send_message(912930887, "Кто-то хотел остановить бота, сер! Вот его данные: \n" + "ФИО: " + str(full_name) + '\nID: ' + str(user_id) + '\nUsername: ' + str(username))
+        bot.send_message("ADMIN_ID", "Кто-то хотел остановить бота, сер! Вот его данные: \n" + "ФИО: " + str(full_name) + '\nID: ' + str(user_id) + '\nUsername: ' + str(username))
 
 if __name__ == '__main__':
     executor.start_polling(dp, skip_updates=True)
